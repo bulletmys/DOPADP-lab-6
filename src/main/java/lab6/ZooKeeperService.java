@@ -18,7 +18,11 @@ public class ZooKeeperService {
 
     void watcher() {
         ArrayList<String> servers = zooKeeper.getChildren("/servers", watchedEvent -> {
-            
-        })
+            if (Watcher.Event.EventType.NodeChildrenChanged == watchedEvent.getType()) {
+                watcher();
+            }
+        });
+
+        ArrayList<String>
     }
 }
