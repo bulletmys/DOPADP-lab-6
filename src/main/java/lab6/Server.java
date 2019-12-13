@@ -6,8 +6,10 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 
 import java.util.concurrent.CompletionStage;
+import java.util.regex.Pattern;
 
 public class Server extends AllDirectives {
     private Http http;
@@ -38,7 +40,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
-
+        return Patterns.ask(configActor, new RandServer())
     }
 
 
