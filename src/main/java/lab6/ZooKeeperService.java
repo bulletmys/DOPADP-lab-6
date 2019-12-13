@@ -13,10 +13,10 @@ public class ZooKeeperService {
 
     ZooKeeperService(ActorRef configActor) throws IOException {
         this.configActor = configActor;
-        zooKeeper = new ZooKeeper("127.0.0.1:2050", 5000, null);
+        zooKeeper = new ZooKeeper("127.0.0.1:2181", 5000, null);
     }
 
     void watcher() {
-        ArrayList<String> servers
+        ArrayList<String> servers = zooKeeper.getChildren()
     }
 }
