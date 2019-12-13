@@ -6,7 +6,8 @@ import akka.actor.Props;
 public class ConfigActor extends AbstractActor {
     @Override
     public Receive createReceive() {
-        return 
+        return receiveBuilder()
+                .match()
     }
 
     public static Props props() {
