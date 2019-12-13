@@ -27,7 +27,7 @@ public class Main {
         final Http http = Http.get(system);
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
-        Server server = new Server();
+        Server server = new Server(http, port);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = (new HttpClientAsync(system)).httpFlow(materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
