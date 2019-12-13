@@ -9,6 +9,7 @@ import java.util.Random;
 public class ConfigActor extends AbstractActor {
 
     String[] servers;
+
     @Override
     public Receive createReceive() {
         return receiveBuilder()
