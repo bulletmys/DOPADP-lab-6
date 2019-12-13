@@ -12,7 +12,9 @@ public class ConfigActor extends AbstractActor {
                 })
     }
 
-    
+    String rand() {
+        
+    }
 
     public static Props props() {
         return Props.create(ConfigActor.class);
