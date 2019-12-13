@@ -24,7 +24,7 @@ public class Main {
     private static final String ACTOR_SYSTEM_NAME = "routes";
 
     public static void main(String[] args) throws IOException {
-        int port
+        int port = Integer.parseInt()
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         ActorRef configActor = system.actorOf(ConfigActor.props());
         final Http http = Http.get(system);
