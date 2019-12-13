@@ -17,7 +17,9 @@ public class Server extends AllDirectives {
     }
 
     Route createRoute() {
-        return 
+        return get(() -> {
+            
+        })
     }
 
 
