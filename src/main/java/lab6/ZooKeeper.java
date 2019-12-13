@@ -10,6 +10,6 @@ public class ZooKeeper {
 
     ZooKeeper(ActorRef configActor) {
         this.configActor = configActor;
-        zooKeeper = 
+        zooKeeper = new ZooKeeper()
     }
 }
