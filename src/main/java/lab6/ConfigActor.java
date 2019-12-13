@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ConfigActor extends AbstractActor {
 
-    ArrayList<String> servers;
+    String[] servers;
     @Override
     public Receive createReceive() {
         return receiveBuilder()
@@ -15,7 +15,7 @@ public class ConfigActor extends AbstractActor {
                     sender().tell(rand(), self());
                 })
                 .match(ArrayList.class, mail -> {
-                    servers = mail;
+                    servers = mail.toArray();
                 })
                 .build();
     }
