@@ -33,7 +33,7 @@ public class Server extends AllDirectives {
                         if (counter == 0) {
                             return completeWithFuture(makeRequest(url));
                         }
-                        return completeWithFuture()
+                        return completeWithFuture(getRandReq())
                     }));
         })
     }
