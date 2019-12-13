@@ -5,6 +5,7 @@ import org.apache.zookeeper.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ZooKeeperService {
 
@@ -16,13 +17,23 @@ public class ZooKeeperService {
         zooKeeper = new ZooKeeper("127.0.0.1:2181", 5000, null);
     }
 
-    void watcher() {
-        ArrayList<String> servers = zooKeeper.getChildren("/servers", watchedEvent -> {
+    void watcher() throws KeeperException, InterruptedException {
+        List<String> serverNodes = zooKeeper.getChildren("/servers", watchedEvent -> {
             if (Watcher.Event.EventType.NodeChildrenChanged == watchedEvent.getType()) {
-                watcher();
+                try {
+                    watcher();
+                } catch (KeeperException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        ArrayList<String>
+        ArrayList<String> server = new ArrayList<>();
+        for (String node : serverNodes) {
+            byte[] url = zooKeeper.getData("/servers/" + node, null, null);
+            server.add(new String(url));
+        }
+
+        configActor.tell( ,ActorRef.noSender());
     }
 }
