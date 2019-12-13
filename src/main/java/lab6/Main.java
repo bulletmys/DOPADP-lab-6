@@ -18,12 +18,13 @@ import java.util.concurrent.CompletionStage;
 
 public class Main {
     private static final String SERVER_ONLINE_MSG = "Server online at http://localhost:8080/\nPress RETURN to stop...";
-    private static final int PORT = 8080;
+    //    private static final int PORT = 8080;
     private static final String HOST = "localhost";
     private static final String ACTOR_SYSTEM_NAME = "routes";
 
     public static void main(String[] args) throws IOException {
         int port = Integer.parseInt(args[0]);
+        
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         ActorRef configActor = system.actorOf(ConfigActor.props());
         final Http http = Http.get(system);
@@ -33,7 +34,7 @@ public class Main {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = server.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost(HOST, PORT),
+                ConnectHttp.toHost(HOST, port),
                 materializer
         );
         System.out.println(SERVER_ONLINE_MSG);
