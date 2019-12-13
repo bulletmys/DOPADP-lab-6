@@ -46,7 +46,7 @@ public class Server extends AllDirectives {
         return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000))
                 .thenCompose(URL -> makeRequest(Uri.create(URL).query(
                         Query.create(
-                                
+                                Pair.
                         ))))
     }
 
