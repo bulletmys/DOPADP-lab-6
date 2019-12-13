@@ -18,7 +18,7 @@ public class ZooKeeperService {
     }
 
     void makeServer(String url) {
-        zooKeeper.create("/servers/s", url, 
+        zooKeeper.create("/servers/s", url,
         )
     }
 
