@@ -45,11 +45,12 @@ public class Server extends AllDirectives {
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
         return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000))
-                .thenCompose(URL -> makeRequest(Uri.create(URL).query(
-                        Query.create(
+                .thenCompose(URL -> makeRequest(Uri.create(URL)
+                        .query(Query.create(
                                 Pair.create("url", url),
                                 Pair.create("count", String.valueOf(count - 1))
                         ))
+                        .toString()
                 ))
     }
 
