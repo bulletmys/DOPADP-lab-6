@@ -30,7 +30,7 @@ public class Main {
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
         Server server = new Server(http, port, configActor);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = 
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = server.
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost(HOST, PORT),
