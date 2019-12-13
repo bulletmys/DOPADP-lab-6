@@ -24,6 +24,8 @@ public class Server extends AllDirectives {
                         if (counter == 0) {
                             return completeWithFuture()
                         }
+
+                        return completeWithFuture()
                     }))
         })
     }
