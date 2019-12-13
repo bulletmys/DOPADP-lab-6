@@ -2,6 +2,7 @@ package lab6;
 
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 
@@ -34,7 +35,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> makeRequest(String url) {
-        return http.singleRequest()
+        return http.singleRequest(HttpRequest.create())
     }
 
 
