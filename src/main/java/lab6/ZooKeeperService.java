@@ -10,6 +10,6 @@ public class ZooKeeperService {
 
     ZooKeeperService(ActorRef configActor) {
         this.configActor = configActor;
-        zooKeeper = new ZooKeeper("127.0.0.1:")
+        zooKeeper = new ZooKeeper("127.0.0.1:2050")
     }
 }
