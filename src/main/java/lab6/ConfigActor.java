@@ -15,7 +15,7 @@ public class ConfigActor extends AbstractActor {
                     sender().tell(rand(), self());
                 })
                 .match(ArrayList.class, mail -> {
-
+                    servers = mail;
                 })
                 .build();
     }
