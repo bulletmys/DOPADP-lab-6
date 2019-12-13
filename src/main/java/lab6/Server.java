@@ -34,7 +34,7 @@ public class Server extends AllDirectives {
                             return completeWithFuture(makeRequest(url));
                         }
                         return completeWithFuture()
-                    }))
+                    }));
         })
     }
 
