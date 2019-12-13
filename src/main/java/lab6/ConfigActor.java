@@ -7,7 +7,7 @@ public class ConfigActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match()
+                .match(RandServer.class, )
     }
 
     public static Props props() {
