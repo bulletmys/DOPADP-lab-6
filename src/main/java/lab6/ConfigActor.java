@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ConfigActor extends AbstractActor {
 
-    ArrayList<>
+    ArrayList<String> servers;
     @Override
     public Receive createReceive() {
         return receiveBuilder()
