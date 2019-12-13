@@ -6,7 +6,6 @@ import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
-import akka.http.javadsl.model.headers.Server;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -24,13 +23,13 @@ public class Main {
     private static final String ACTOR_SYSTEM_NAME = "routes";
 
     public static void main(String[] args) throws IOException {
-        int port = Integer.parseInt()
+        int port = Integer.parseInt(args[0]);
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         ActorRef configActor = system.actorOf(ConfigActor.props());
         final Http http = Http.get(system);
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
-        Server server = new Server(http, port);
+        Server server = new Server(http, port, configActor);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = (new HttpClientAsync(system)).httpFlow(materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
