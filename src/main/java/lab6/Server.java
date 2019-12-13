@@ -20,7 +20,7 @@ public class Server extends AllDirectives {
         return get(() -> {
             parameter("URL", url ->
                     parameter("count", count -> {
-                        int count = Integer.
+                        int count = Integer.parseInt()
                     }))
         })
     }
