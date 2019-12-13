@@ -4,6 +4,7 @@ import akka.actor.ActorRef;
 import org.apache.zookeeper.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ZooKeeperService {
 
@@ -15,5 +16,7 @@ public class ZooKeeperService {
         zooKeeper = new ZooKeeper("127.0.0.1:2050", 5000, null);
     }
 
-    void 
+    void watcher() {
+        ArrayList<String> servers
+    }
 }
