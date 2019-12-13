@@ -26,7 +26,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int port
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
-        ActorRef configActor = system.actorOf()
+        ActorRef configActor = system.actorOf(ConfigActor.props());
         final Http http = Http.get(system);
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
