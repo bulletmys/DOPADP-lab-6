@@ -36,7 +36,8 @@ public class Server extends AllDirectives {
     CompletionStage<HttpResponse> makeRequest(String url) {
         return http.singleRequest(HttpRequest.create(url));
     }
-    
+
+    CompletionStage<>
 
 
 }
