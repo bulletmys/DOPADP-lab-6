@@ -42,7 +42,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
-        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(url -> makeRequest(Uri.create(url)))
+        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(url -> makeRequest(Uri.create(url).query()))
     }
 
 
