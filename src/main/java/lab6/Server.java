@@ -33,9 +33,9 @@ public class Server extends AllDirectives {
                         if (counter == 0) {
                             return completeWithFuture(makeRequest(url));
                         }
-                        return completeWithFuture(getRandReq())
+                        return completeWithFuture(getRandReq(url, counter));
                     }));
-        })
+        });
     }
 
     CompletionStage<HttpResponse> makeRequest(String url) {
