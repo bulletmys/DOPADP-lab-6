@@ -6,6 +6,8 @@ import akka.actor.Props;
 import java.util.ArrayList;
 
 public class ConfigActor extends AbstractActor {
+
+    ArrayList<>
     @Override
     public Receive createReceive() {
         return receiveBuilder()
@@ -13,7 +15,7 @@ public class ConfigActor extends AbstractActor {
                     sender().tell(rand(), self());
                 })
                 .match(ArrayList.class, mail -> {
-                    
+
                 })
                 .build();
     }
