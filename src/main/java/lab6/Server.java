@@ -49,7 +49,7 @@ public class Server extends AllDirectives {
                         Query.create(
                                 Pair.create("url", url),
                                 Pair.create("count", String.valueOf(count - 1))
-                        )).toString()))
+                        ))))
     }
 
 
