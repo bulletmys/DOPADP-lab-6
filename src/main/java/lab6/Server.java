@@ -26,16 +26,16 @@ public class Server extends AllDirectives {
     }
 
     Route createRoute() {
-        return get(() -> {
-            parameter("URL", url ->
-                    parameter("count", count -> {
-                        int counter = Integer.parseInt(count);
-                        if (counter == 0) {
-                            return completeWithFuture(makeRequest(url));
-                        }
-                        return completeWithFuture(getRandReq(url, counter));
-                    }));
-        });
+        return get(() ->
+                parameter("URL", url ->
+                        parameter("count", count -> {
+                            int counter = Integer.parseInt(count);
+                            if (counter == 0) {
+                                return completeWithFuture(makeRequest(url));
+                            }
+                            return completeWithFuture(getRandReq(url, counter));
+                        }))
+        );
     }
 
     CompletionStage<HttpResponse> makeRequest(String url) {
@@ -43,7 +43,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
-        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(url -> makeRequest(Uri.create(url).query(Query.create())))
+        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(URL -> makeRequest(Uri.create(url).query(Query.create())))
     }
 
 
