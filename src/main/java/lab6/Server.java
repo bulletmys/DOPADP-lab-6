@@ -8,6 +8,7 @@ import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 
+import java.time.Duration;
 import java.util.concurrent.CompletionStage;
 import java.util.regex.Pattern;
 
@@ -40,7 +41,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
-        return Patterns.ask(configActor, new RandServer())
+        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(url -> makeRequest(url))
     }
 
 
