@@ -4,6 +4,7 @@ import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.http.javadsl.model.Uri;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
@@ -41,7 +42,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
-        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(url -> makeRequest())
+        return Patterns.ask(configActor, new RandServer(), Duration.ofMillis(5000)).thenCompose(url -> makeRequest(Uri.create()))
     }
 
 
