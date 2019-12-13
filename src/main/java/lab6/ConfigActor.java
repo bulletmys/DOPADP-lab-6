@@ -22,7 +22,7 @@ public class ConfigActor extends AbstractActor {
     }
 
     String rand() {
-        return servers[new Random()]
+        return servers[new Random().nextInt(servers.length)];
     }
 
     public static Props props() {
