@@ -7,4 +7,6 @@ public class ConfigActor extends AbstractActor {
     public Receive createReceive() {
         return null;
     }
+
+    
 }
