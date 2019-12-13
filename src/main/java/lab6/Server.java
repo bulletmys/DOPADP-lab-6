@@ -33,7 +33,7 @@ public class Server extends AllDirectives {
         })
     }
 
-    CompletionStage<HttpResponse> make
+    CompletionStage<HttpResponse> makeRequest()
 
 
 }
