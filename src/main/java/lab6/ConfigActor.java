@@ -4,6 +4,7 @@ import akka.actor.AbstractActor;
 import akka.actor.Props;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ConfigActor extends AbstractActor {
 
@@ -21,7 +22,7 @@ public class ConfigActor extends AbstractActor {
     }
 
     String rand() {
-        return servers[]
+        return servers[new Random()]
     }
 
     public static Props props() {
