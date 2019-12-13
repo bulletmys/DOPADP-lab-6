@@ -1,6 +1,7 @@
 package lab6;
 
 import akka.actor.ActorRef;
+import org.apache.zookeeper.*;
 
 public class ZooKeeper {
 
@@ -9,6 +10,6 @@ public class ZooKeeper {
 
     ZooKeeper(ActorRef configActor) {
         this.configActor = configActor;
-        zooKeeper = createZooKeeper();
+        zooKeeper = crea
     }
 }
