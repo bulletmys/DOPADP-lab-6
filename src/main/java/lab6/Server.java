@@ -5,6 +5,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 
+import java.net.http.HttpResponse;
 import java.util.concurrent.CompletionStage;
 
 public class Server extends AllDirectives {
@@ -32,7 +33,7 @@ public class Server extends AllDirectives {
         })
     }
 
-    CompletionStage
+    CompletionStage<HttpResponse>
 
 
 }
