@@ -13,7 +13,7 @@ public class ConfigActor extends AbstractActor {
     }
 
     String rand() {
-        
+
     }
 
     public static Props props() {
