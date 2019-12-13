@@ -7,9 +7,9 @@ public class ConfigActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(RandServer.class, () -> {
-                    sender().tell(rand());
-                })
+                .match(RandServer.class, mail -> {
+                    sender().tell(rand(), self());
+                });
     }
 
     String rand() {
