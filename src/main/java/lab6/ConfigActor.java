@@ -8,9 +8,11 @@ public class ConfigActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(RandServer.class, () -> {
-                    sender().tell();
+                    sender().tell(rand());
                 })
     }
+
+    
 
     public static Props props() {
         return Props.create(ConfigActor.class);
