@@ -8,8 +8,8 @@ import akka.http.javadsl.model.Query;
 import akka.http.javadsl.model.Uri;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
+import akka.japi.Pair;
 import akka.pattern.Patterns;
-import jdk.internal.vm.compiler.collections.Pair;
 
 import java.time.Duration;
 import java.util.concurrent.CompletionStage;
@@ -51,7 +51,7 @@ public class Server extends AllDirectives {
                                 Pair.create("count", String.valueOf(count - 1))
                         ))
                         .toString()
-                ))
+                ));
     }
 
 
