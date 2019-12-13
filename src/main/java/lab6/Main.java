@@ -20,7 +20,7 @@ public class Main {
     private static final String SERVER_ONLINE_MSG = "Server online at http://localhost/\nPress RETURN to stop...";
     //    private static final int PORT = 8080;
     private static final String HOST = "localhost";
-    private static final String ACTOR_SYSTEM_NAME = "routes";
+    private static final String ACTOR_SYSTEM_NAME = "configActor";
 
     public static void main(String[] args) throws IOException {
         int port = Integer.parseInt(args[0]);
