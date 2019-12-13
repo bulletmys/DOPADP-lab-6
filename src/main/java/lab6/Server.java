@@ -22,7 +22,7 @@ public class Server extends AllDirectives {
                     parameter("count", count -> {
                         int counter = Integer.parseInt(count);
                         if (counter == 0) {
-                            return 
+                            return completeWithFuture()
                         }
                     }))
         })
