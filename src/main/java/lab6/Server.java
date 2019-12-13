@@ -19,7 +19,9 @@ public class Server extends AllDirectives {
     Route createRoute() {
         return get(() -> {
             parameter("URL", url ->
-                    parameter("count", count -> {}))
+                    parameter("count", count -> {
+                        
+                    }))
         })
     }
 
