@@ -38,7 +38,7 @@ public class Server extends AllDirectives {
     }
 
     CompletionStage<HttpResponse> getRandReq(String url, int count) {
-        
+
     }
 
 
