@@ -33,7 +33,9 @@ public class Server extends AllDirectives {
         })
     }
 
-    CompletionStage<HttpResponse> makeRequest()
+    CompletionStage<HttpResponse> makeRequest(String url) {
+        
+    }
 
 
 }
