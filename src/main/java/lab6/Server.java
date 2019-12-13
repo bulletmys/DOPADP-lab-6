@@ -3,6 +3,7 @@ package lab6;
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.server.AllDirectives;
+import akka.http.javadsl.server.Route;
 
 public class Server extends AllDirectives {
     private Http http;
@@ -15,7 +16,9 @@ public class Server extends AllDirectives {
         this.configActor = configActor;
     }
 
-    public
+    Route createRoute() {
+        
+    }
 
 
 }
