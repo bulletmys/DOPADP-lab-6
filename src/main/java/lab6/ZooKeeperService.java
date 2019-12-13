@@ -17,6 +17,6 @@ public class ZooKeeperService {
     }
 
     void watcher() {
-        ArrayList<String> servers = zooKeeper.getChildren("/servers")
+        ArrayList<String> servers = zooKeeper.getChildren("/servers/")
     }
 }
