@@ -6,6 +6,6 @@ import akka.http.javadsl.server.AllDirectives;
 
 public class Server extends AllDirectives {
     public Server(Http http, int port, ActorRef configActor) {
-        
+
     }
 }
