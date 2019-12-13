@@ -4,5 +4,7 @@ import akka.actor.ActorRef;
 
 public class ZooKeeper {
 
-    ZooKeeper(ActorRef )
+    ZooKeeper(ActorRef configActor) {
+        
+    }
 }
