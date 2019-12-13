@@ -1,6 +1,7 @@
 package lab6;
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
@@ -25,6 +26,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int port
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
+        ActorRef configActor = 
         final Http http = Http.get(system);
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
