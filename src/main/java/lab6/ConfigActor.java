@@ -8,7 +8,7 @@ public class ConfigActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(RandServer.class, () -> {
-                    
+                    sender().tell();
                 })
     }
 
