@@ -17,9 +17,10 @@ public class ZooKeeperService {
         zooKeeper = new ZooKeeper("127.0.0.1:2181", 5000, null);
     }
 
-    void makeServer(String url) {
-        zooKeeper.create("/servers/s", url,
-        )
+    void makeServer(String url) throws KeeperException, InterruptedException {
+        zooKeeper.create("/servers/s", url.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                CreateMode.EPHEMERAL_SEQUENTIAL
+        );
     }
 
     void watcher() throws KeeperException, InterruptedException {
@@ -39,6 +40,6 @@ public class ZooKeeperService {
             server.add(new String(url));
         }
 
-        configActor.tell(server ,ActorRef.noSender());
+        configActor.tell(server, ActorRef.noSender());
     }
 }
